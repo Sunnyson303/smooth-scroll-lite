@@ -38,10 +38,10 @@
 
 # API
 
-参数 | 类型 | 说明
----|----|---
-speed | Number | 动画时间
-easing | String | 动画类型
+参数 | 类型 | 说明 | 默认
+---|----|---|---
+speed | Number | 动画时间 | 500
+easing | String | 动画类型 | easeInCubic
 
 
 
