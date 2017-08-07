@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0
+    }
+
+    .container {
+      height: 100%;
+      padding-top: 200px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    #position1 {
+      height: 200px;
+      border-top: 1px solid #ccc;
+    }
+
+    #position2 {
+      height: 500px;
+      border-top: 1px solid #ccc;
+    }
+
+    #position3 {
+      height: 500px;
+      border-top: 1px solid #ccc;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .menu {
+      background: #ccc;
+      height: 100px;
+    }
+
+    nav {
+      position: fixed;
+      right: 20px;
+      top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="menu">
+      <a href="/">元素滚动</a>
+      <a href="index-2.html">window滚动</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#position1" smooth-scroll-id>一</a></li>
+        <li><a href="#position2" smooth-scroll-id>二</a></li>
+        <li><a href="#position3" smooth-scroll-id>三</a></li>
+      </ul>
+    </nav>
+    <div id="position1">位置一</div>
+    <div id="position2">位置二</div>
+    <div id="position3">位置三</div>
+  </div>
+  <script src="bundle.js"></script>
+  <script>
+    var smoothScroll = new SmoothScroll({
+      easing: 'easeInCubic',
+      speed: 1000
+    })
+    smoothScroll.scrollTo(document.querySelector('#position2'))
+  </script>
+</body>
+
+</html>
