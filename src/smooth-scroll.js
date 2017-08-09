@@ -64,10 +64,10 @@ class SmoothScroll {
     }
   }
 
-  scrollTo(anchor) {
+  scrollTo(anchor, offset) {
     this.scrollTarget = getScrollTarget(anchor)
     this.startPosition = this.getScrollHeight(this.scrollTarget)
-    this.endPosition = getPosition(anchor)
+    this.endPosition = getPosition(anchor, offset)
     this.timeLapsed = 0
     // console.log('before', this);
     myReq = window.requestAnimationFrame(this.loopAnimateScroll.bind(this))
@@ -133,8 +133,9 @@ class SmoothScroll {
   }
 
   hashChangeHandler(target) {
+    if(target.getAttribute('smooth-scroll-id') == null) return
     var anchor = document.querySelector(target.getAttribute('href'))
-    if (target.getAttribute('smooth-scroll-id') != null && anchor) {
+    if (anchor) {
       this.scrollTo(anchor)
     }
   }

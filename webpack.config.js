@@ -1,6 +1,7 @@
 const path = require('path')
-var author = require('./package').author
+var {author, homepage} = require('./package')
 var WebpackAutoInject = require('webpack-auto-inject-version');
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/smooth-scroll.js',
@@ -26,11 +27,18 @@ module.exports = {
              * version: {version} 
              * author: ${author}
              * date: {date}
+             * homepage: ${homepage}
              */
           `
         }
       }
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false,
+      }
+    }),
   ],
   devServer: {
     open: true,
